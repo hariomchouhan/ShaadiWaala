@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+@import 'swiper/css/effect-fade';
+
+@theme {
+  --color-gold: #c5a059;
+  --color-gold-light: #d4b87a;
+  --color-brown: #4a3728;
+  --color-brown-deep: #2d1f18;
+  --color-bg: #0a0a0a;
+  --color-surface: #141210;
+  --color-text: #f5f0e8;
+  --color-text-muted: #9a8b7a;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+}
+
+:root {
+  --gold: #c5a059;
+  --gold-light: #d4b87a;
+  --brown: #4a3728;
+  --brown-deep: #2d1f18;
+  --bg: #0a0a0a;
+  --surface: #141210;
+  --text: #f5f0e8;
+  --text-muted: #9a8b7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+}
+
+::selection {
+  background-color: rgba(197, 160, 89, 0.35);
+  color: #fff;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-border {
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(197, 160, 89, 0.6),
+    transparent
+  );
+}
+
+.glass-nav {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  background: rgba(197, 160, 89, 0.4);
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  background: var(--gold);
+  width: 28px;
+  border-radius: 5px;
+}
+
+.testimonial-swiper .swiper-pagination-bullet {
+  background: rgba(197, 160, 89, 0.3);
+  opacity: 1;
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+  background: var(--gold);
+}
