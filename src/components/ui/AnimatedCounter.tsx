@@ -38,7 +38,7 @@ export function AnimatedCounter({ value, suffix = '', label }: AnimatedCounterPr
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="text-center p-6 md:p-8 rounded-sm border border-gold/20 bg-surface hover:border-gold/50 transition-colors duration-300"
+      className="text-center p-6 md:p-8 rounded-sm border border-gold/20 bg-bg card-shadow hover:border-gold/50 transition-colors duration-300"
     >
       <div className="text-4xl md:text-5xl font-serif font-bold gold-gradient-text mb-2">
         {count}

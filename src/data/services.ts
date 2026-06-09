@@ -1,4 +1,6 @@
-export type ServiceCategory = 'bride' | 'groom' | 'planning'
+import { images } from './images'
+
+export type ServiceCategory = 'core' | 'bride' | 'groom'
 
 export interface Service {
   id: string
@@ -11,188 +13,129 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: 'wedding-planning',
-    title: 'Wedding Planning',
+    id: 'personal-matchmaking',
+    title: 'Personal Matchmaking',
     description:
-      'End-to-end wedding coordination from concept to execution, ensuring every detail aligns with your vision.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80',
+      'One-on-one matrimonial service tailored to your family\'s values, preferences, and expectations — handled privately, never on a public platform.',
+    category: 'core',
+    image: images.pheras,
     featured: true,
   },
   {
-    id: 'venue-selection',
-    title: 'Venue Selection',
+    id: 'elite-nri',
+    title: 'Elite & NRI Matrimony',
     description:
-      'Curated venue recommendations across India — from heritage palaces to modern luxury resorts.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1519167758481-83f29da8c2f2?w=600&q=80',
+      'Exclusively for Elite-class families and NRIs. We understand the unique expectations of high-profile and overseas clients and match accordingly.',
+    category: 'core',
+    image: images.palaceVenue,
     featured: true,
   },
   {
-    id: 'design-decor',
-    title: 'Design & Decor',
+    id: 'background-verification',
+    title: 'Background Verification',
     description:
-      'Bespoke floral arrangements, stage design, and thematic decor that transforms your venue into a dreamscape.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&q=80',
+      'Comprehensive verification of both parties — financial background, personal history, family reputation, and every detail that matters in an Indian marriage alliance.',
+    category: 'core',
+    image: images.indianWedding,
     featured: true,
   },
   {
-    id: 'photography',
-    title: 'Photography',
+    id: 'profile-sharing',
+    title: 'Confidential Profile Sharing',
     description:
-      'Capture every precious moment with our network of award-winning wedding photographers and cinematographers.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80',
+      'Profiles are shared selectively with essential personal details only — no contact information. Complete privacy until both sides approve a meeting.',
+    category: 'core',
+    image: images.bridalStyling,
     featured: true,
   },
   {
-    id: 'catering',
-    title: 'Catering',
+    id: 'requirement-profiling',
+    title: 'Requirement Profiling',
     description:
-      'Exquisite multi-cuisine menus crafted by top chefs, from traditional Indian feasts to global gourmet spreads.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80',
+      'Detailed documentation of partner preferences — age, height, caste, education, profession, financial status, location, and family values — for precision matching.',
+    category: 'core',
+    image: images.weddingDecor,
     featured: true,
   },
   {
-    id: 'hospitality',
-    title: 'Hospitality',
+    id: 'meetup-coordination',
+    title: 'Personal Meetup Coordination',
     description:
-      'Seamless guest management, welcome kits, accommodation coordination, and concierge services.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80',
+      'We personally arrange and coordinate face-to-face meetings between matched families in a comfortable, private setting.',
+    category: 'core',
+    image: images.reception,
     featured: true,
   },
   {
-    id: 'entertainment',
-    title: 'Entertainment',
+    id: 'financial-verification',
+    title: 'Financial Verification',
     description:
-      'Live bands, DJs, performers, and celebrity appearances to keep your celebrations alive all night.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80',
+      'Independent verification of financial standing, assets, and earning capacity — ensuring transparency and trust before any alliance proceeds.',
+    category: 'core',
+    image: images.catering,
     featured: true,
   },
   {
-    id: 'destination-wedding',
-    title: 'Destination Weddings',
+    id: 'privacy-first',
+    title: 'Privacy-First Service',
     description:
-      'Full destination wedding planning across India\'s most breathtaking locations with complete logistics support.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1519167758481-83f29da8c2f2?w=600&q=80',
+      'Your data stays entirely private within our system. No public listings, no shared databases — only our team accesses your information.',
+    category: 'core',
+    image: images.intro,
     featured: true,
   },
   {
-    id: 'mehndi',
-    title: 'Mehndi Ceremony',
+    id: 'bride-registration',
+    title: 'Bride Family Consultation',
     description:
-      'Beautiful mehndi setups with artists, decor, and entertainment for an unforgettable pre-wedding celebration.',
+      'Dedicated consultation for bride families — understanding her preferences, family expectations, and the qualities she seeks in a life partner.',
     category: 'bride',
-    image:
-      'https://images.unsplash.com/photo-1522673604730-dc317f1a51f2?w=600&q=80',
+    image: images.mehndi,
   },
   {
-    id: 'haldi',
-    title: 'Haldi Ceremony',
+    id: 'bride-preferences',
+    title: 'Partner Preference Matching',
     description:
-      'Vibrant haldi setups with traditional elements, floral decor, and coordinated rituals for both families.',
+      'We match based on the bride\'s specific requirements — groom\'s age, height, education, profession, financial background, caste, and family values.',
     category: 'bride',
-    image:
-      'https://images.unsplash.com/photo-1606800052052-a08af8348865?w=600&q=80',
+    image: images.bridalStyling,
   },
   {
-    id: 'sangeet',
-    title: 'Sangeet Night',
+    id: 'bride-verification',
+    title: 'Groom Background Check',
     description:
-      'Grand sangeet productions with choreography, stage design, lighting, and sound for a spectacular show.',
+      'Every prospective groom is thoroughly verified before his profile is shared — financial, personal, family, and professional background included.',
     category: 'bride',
-    image:
-      'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80',
+    image: images.haldi,
   },
   {
-    id: 'styling',
-    title: 'Bridal Styling',
+    id: 'groom-registration',
+    title: 'Groom Family Consultation',
     description:
-      'Complete bridal and groom styling — outfits, jewellery coordination, makeup artists, and personal shoppers.',
-    category: 'bride',
-    image:
-      'https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=600&q=80',
-  },
-  {
-    id: 'baraat',
-    title: 'Baraat Arrangement',
-    description:
-      'Royal baraat processions with horses, vintage cars, bands, and lawazma for a majestic groom\'s entry.',
+      'Personal consultation for groom families — understanding his preferences, career goals, and the qualities he seeks in a life partner.',
     category: 'groom',
-    image:
-      'https://images.unsplash.com/photo-1591604466109-e907867ebdca?w=600&q=80',
+    image: images.baraat,
   },
   {
-    id: 'lawazma',
-    title: 'Lawazma Procession',
+    id: 'groom-preferences',
+    title: 'Partner Preference Matching',
     description:
-      'Traditional royal processions with elephants, horses, and ceremonial elements for a regal baraat.',
+      'We match based on the groom\'s specific requirements — bride\'s age, education, family background, caste, lifestyle, and personal values.',
     category: 'groom',
-    image:
-      'https://images.unsplash.com/photo-1583939009759-593c5c8743c4?w=600&q=80',
+    image: images.sangeet,
   },
   {
-    id: 'vintage-car',
-    title: 'Vintage Car',
+    id: 'groom-verification',
+    title: 'Bride Background Check',
     description:
-      'Classic vintage and luxury car rentals for the groom\'s grand arrival in true royal Rajasthani style.',
+      'Every prospective bride is thoroughly verified before her profile is shared — family background, education, personal history, and all relevant details.',
     category: 'groom',
-    image:
-      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80',
-  },
-  {
-    id: 'welcome-host',
-    title: 'Welcome Host',
-    description:
-      'Professional hosts and ushers to warmly receive and guide every guest throughout your celebrations.',
-    category: 'groom',
-    image:
-      'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80',
-  },
-  {
-    id: 'valet-parking',
-    title: 'Valet Parking',
-    description:
-      'Organised valet and parking management ensuring a smooth arrival experience for all your guests.',
-    category: 'groom',
-    image:
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80',
-  },
-  {
-    id: 'security',
-    title: 'Security',
-    description:
-      'Professional security personnel and crowd management for safe, worry-free celebrations.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-  },
-  {
-    id: 'honeymoon',
-    title: 'Honeymoon Packages',
-    description:
-      'Curated honeymoon getaways to exotic destinations, perfectly planned for the newlyweds.',
-    category: 'planning',
-    image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80',
+    image: images.pheras,
   },
 ]
 
 export const categoryLabels: Record<ServiceCategory, string> = {
-  bride: "Bride's Journey",
-  groom: "Groom's Journey",
-  planning: 'Full Planning & Services',
+  core: 'Core Services',
+  bride: 'For Bride Families',
+  groom: 'For Groom Families',
 }

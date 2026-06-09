@@ -22,12 +22,12 @@ export function Destinations() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-serif text-2xl text-text group-hover:text-gold transition-colors">
+                  <h3 className="font-serif text-2xl text-white group-hover:text-gold-light transition-colors">
                     {dest.name}
                   </h3>
-                  <p className="text-text-muted text-sm mt-1">{dest.tagline}</p>
+                  <p className="text-white/75 text-sm mt-1">{dest.tagline}</p>
                 </div>
                 <div className="absolute inset-0 border border-transparent group-hover:border-gold/40 transition-colors duration-300 rounded-sm" />
               </div>

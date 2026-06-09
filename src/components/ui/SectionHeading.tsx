@@ -36,7 +36,7 @@ export function SectionHeading({
         <Heart className="w-4 h-4 text-gold fill-gold/20" />
         <h2
           className={`text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight ${
-            light ? 'text-bg' : 'text-text'
+            light ? 'text-white' : 'text-text'
           }`}
         >
           {title}
@@ -47,7 +47,7 @@ export function SectionHeading({
       {description && (
         <p
           className={`max-w-2xl text-base md:text-lg leading-relaxed ${
-            light ? 'text-bg/80' : 'text-text-muted'
+            light ? 'text-white/85' : 'text-text-muted'
           } ${align === 'center' ? 'mx-auto' : ''}`}
         >
           {description}

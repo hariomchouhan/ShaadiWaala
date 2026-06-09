@@ -17,11 +17,11 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    'bg-gold text-bg hover:bg-gold-light shadow-lg shadow-gold/20',
+    'bg-gold text-white hover:bg-gold-light shadow-lg shadow-gold/25',
   secondary:
-    'bg-brown-deep text-text border border-brown hover:border-gold hover:text-gold',
+    'bg-brown-deep text-text border border-gold/25 hover:border-gold hover:text-gold',
   outline:
-    'border border-gold text-gold hover:bg-gold hover:text-bg',
+    'border border-gold text-gold hover:bg-gold hover:text-white',
   ghost: 'text-gold hover:text-gold-light',
 }
 

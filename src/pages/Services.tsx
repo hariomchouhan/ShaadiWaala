@@ -6,8 +6,15 @@ import { ScrollReveal } from '../components/ui/ScrollReveal'
 import { Button } from '../components/ui/Button'
 import { ContactCTA } from '../components/sections/ContactCTA'
 import { services, categoryLabels, type Service, type ServiceCategory } from '../data/services'
+import { siteConfig } from '../data/siteConfig'
 
-const categories: ServiceCategory[] = ['bride', 'groom', 'planning']
+const categories: ServiceCategory[] = ['core', 'bride', 'groom']
+
+const categorySubtitles: Record<ServiceCategory, string> = {
+  core: 'Our Expertise',
+  bride: 'For Bride Families',
+  groom: 'For Groom Families',
+}
 
 export function Services() {
   const [selected, setSelected] = useState<Service | null>(null)
@@ -18,11 +25,14 @@ export function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-gold text-sm tracking-[0.25em] uppercase">Our Expertise</span>
           <h1 className="font-serif text-4xl md:text-6xl text-text mt-4 mb-6">
-            Wedding <span className="gold-gradient-text">Services</span>
+            Matrimonial <span className="gold-gradient-text">Services</span>
           </h1>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            From the bride&apos;s Mehndi to the groom&apos;s Baraat — comprehensive
-            solutions for every ceremony and detail.
+          <p className="text-text-muted text-lg max-w-2xl mx-auto mb-4">
+            Personal, private matchmaking with background verification — exclusively
+            for Elite families and NRIs.
+          </p>
+          <p className="text-gold text-sm tracking-wide max-w-xl mx-auto">
+            {siteConfig.eliteNote}
           </p>
         </div>
       </section>
@@ -36,7 +46,7 @@ export function Services() {
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <SectionHeading
-                subtitle={category === 'bride' ? 'For the Bride' : category === 'groom' ? 'For the Groom' : 'Complete Solutions'}
+                subtitle={categorySubtitles[category]}
                 title={categoryLabels[category]}
                 align="left"
               />
@@ -47,7 +57,7 @@ export function Services() {
                     <button
                       type="button"
                       onClick={() => setSelected(service)}
-                      className="group text-left w-full overflow-hidden rounded-sm border border-gold/15 bg-surface hover:border-gold/40 transition-all duration-300"
+                      className="group text-left w-full overflow-hidden rounded-sm border border-gold/15 bg-bg card-shadow hover:border-gold/40 transition-all duration-300"
                     >
                       <div className="relative h-48 overflow-hidden">
                         <img
@@ -56,7 +66,7 @@ export function Services() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       </div>
                       <div className="p-6">
                         <h3 className="font-serif text-lg text-text group-hover:text-gold transition-colors mb-2">
@@ -86,7 +96,7 @@ export function Services() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bg/90 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
             onClick={() => setSelected(null)}
           >
             <motion.div
@@ -104,18 +114,12 @@ export function Services() {
               >
                 <X className="w-6 h-6" />
               </button>
-              <img
-                src={selected.image}
-                alt={selected.title}
-                className="w-full h-56 object-cover"
-              />
+              <img src={selected.image} alt={selected.title} className="w-full h-56 object-cover" />
               <div className="p-8">
                 <h3 className="font-serif text-2xl text-text mb-4">{selected.title}</h3>
-                <p className="text-text-muted leading-relaxed mb-6">
-                  {selected.description}
-                </p>
+                <p className="text-text-muted leading-relaxed mb-6">{selected.description}</p>
                 <Button to="/contact" size="md">
-                  Enquire Now
+                  Register Your Interest
                 </Button>
               </div>
             </motion.div>

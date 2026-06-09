@@ -1,11 +1,10 @@
 import { Hero } from '../components/sections/Hero'
 import { Intro } from '../components/sections/Intro'
-import { WeddingJourney } from '../components/sections/WeddingJourney'
+import { EliteBanner } from '../components/sections/EliteBanner'
 import { ServicesPreview } from '../components/sections/ServicesPreview'
+import { HowItWorks } from '../components/sections/HowItWorks'
 import { Stats } from '../components/sections/Stats'
 import { Testimonials } from '../components/sections/Testimonials'
-import { Destinations } from '../components/sections/Destinations'
-import { PortfolioPreview } from '../components/sections/PortfolioPreview'
 import { ContactCTA } from '../components/sections/ContactCTA'
 
 export function Home() {
@@ -13,12 +12,11 @@ export function Home() {
     <>
       <Hero />
       <Intro />
-      <WeddingJourney />
+      <EliteBanner />
       <ServicesPreview />
+      <HowItWorks />
       <Stats />
       <Testimonials />
-      <Destinations />
-      <PortfolioPreview />
       <ContactCTA />
     </>
   )

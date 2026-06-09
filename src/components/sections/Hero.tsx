@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { heroSlides } from '../../data/heroSlides'
+import { siteConfig } from '../../data/siteConfig'
 
 export function Hero() {
   return (
@@ -24,8 +25,8 @@ export function Hero() {
                 alt={slide.title}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/40 to-bg/90" />
-              <div className="absolute inset-0 bg-gradient-to-r from-bg/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
             </div>
           </SwiperSlide>
         ))}
@@ -39,23 +40,22 @@ export function Hero() {
           className="max-w-4xl pointer-events-auto"
         >
           <p className="text-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-medium">
-            Premium Wedding Planners
+            Elite & NRI Matrimony
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-text leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-4">
             {heroSlides[0].title}
             <br />
-            <span className="gold-gradient-text">{heroSlides[0].subtitle}</span>
+            <span className="text-gold-light">{heroSlides[0].subtitle}</span>
           </h1>
-          <p className="text-text-muted text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-            From intimate gatherings to lavish destination affairs — we transform
-            your vision into an extraordinary celebration across India.
+          <p className="text-white/85 text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+            {siteConfig.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button to="/services" size="lg">
-              Explore Services
+            <Button to="/contact" size="lg">
+              Register Your Interest
             </Button>
-            <Button to="/contact" variant="outline" size="lg">
-              Contact Us
+            <Button to="/how-it-works" variant="outline" size="lg">
+              How It Works
             </Button>
           </div>
         </motion.div>

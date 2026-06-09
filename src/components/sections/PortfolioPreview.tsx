@@ -25,15 +25,15 @@ export function PortfolioPreview() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-bg/0 group-hover:bg-bg/50 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/45 transition-colors duration-300" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-gold text-xs tracking-widest uppercase mb-2">
                     {item.category}
                   </span>
-                  <h3 className="font-serif text-xl text-text text-center px-4">
+                  <h3 className="font-serif text-xl text-white text-center px-4">
                     {item.title}
                   </h3>
-                  <p className="text-text-muted text-xs mt-2">{item.venue}</p>
+                  <p className="text-white/75 text-xs mt-2">{item.venue}</p>
                 </div>
               </div>
             </ScrollReveal>

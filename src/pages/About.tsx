@@ -1,4 +1,5 @@
 import { Target, Eye, Gem } from 'lucide-react'
+import { images } from '../data/images'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
 import { Stats } from '../components/sections/Stats'
@@ -11,19 +12,19 @@ const values = [
     icon: <Target className="w-8 h-8" />,
     title: 'Our Mission',
     description:
-      'To make every wedding a stress-free, magical experience by handling every detail with passion, precision, and personalized care.',
+      'To connect Elite and NRI families through personal, confidential matchmaking — with verified backgrounds and curated meetings, never public listings.',
   },
   {
     icon: <Eye className="w-8 h-8" />,
     title: 'Our Vision',
     description:
-      'To be India\'s most trusted luxury wedding planning brand, known for transforming dreams into extraordinary celebrations.',
+      'To be India\'s most trusted private matrimonial service for discerning families who value discretion, depth, and genuine compatibility over mass-market portals.',
   },
   {
     icon: <Gem className="w-8 h-8" />,
     title: 'Our Values',
     description:
-      'Integrity, creativity, and unwavering commitment to excellence — because your special day deserves nothing less.',
+      'Absolute privacy, thorough verification, and personal attention — because finding a life partner is too important to leave to algorithms or public databases.',
   },
 ]
 
@@ -32,12 +33,8 @@ export function About() {
     <>
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-bg overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.unsplash.com/photo-1519167758481-83f29da8c2f2?w=1920&q=80"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-bg/80" />
+          <img src={images.aboutHero} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-white/85" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -46,7 +43,7 @@ export function About() {
             The Story Behind <span className="gold-gradient-text">ShaadiWaala</span>
           </h1>
           <p className="text-text-muted text-lg max-w-2xl mx-auto">
-            Where passion meets perfection in the art of wedding celebration.
+            Personal matchmaking for Elite families and NRIs — built on trust, privacy, and verification.
           </p>
         </div>
       </section>
@@ -58,26 +55,27 @@ export function About() {
               <div>
                 <SectionHeading
                   subtitle="Our Story"
-                  title="A Passion for Perfect Weddings"
+                  title="Beyond Public Matrimonial Portals"
                   align="left"
                 />
                 <div className="space-y-4 text-text-muted leading-relaxed">
                   <p>
-                    Wedding is an event that happens once in a lifetime, and every
-                    person dreams of it in the most splendid manner. Planning a wedding
-                    can be overwhelming — that&apos;s where we step in.
+                    Marriage is one of life&apos;s most important decisions — especially
+                    for Elite families and NRIs who carry both tradition and high
+                    expectations. Public matrimonial websites cannot offer the discretion,
+                    verification, or personal attention that such families deserve.
                   </p>
                   <p>
-                    We bring together, plan, and organize weddings and renewal-vow
-                    ceremonies with your most wanted theme. At ShaadiWaala, we get into
-                    your thoughts, align with your desires, and add a touch of
-                    experience and professionalism to make your wedding day{' '}
-                    <em className="text-gold">THE DAY</em> of your life.
+                    ShaadiWaala was founded to fill that gap. We work exclusively with
+                    Elite-class families and NRIs, providing one-on-one matchmaking where
+                    every enquiry is handled privately. We do not list profiles publicly,
+                    and we do not work with small-scale or casual enquiries.
                   </p>
                   <p>
-                    From decoration and dresses to photography, food, and floral
-                    arrangements — we coordinate every element so your wedding day
-                    becomes unforgettable for everyone who attends.
+                    From the first contact form to the final personal meeting, our team
+                    manages every step — collecting detailed requirements, verifying
+                    backgrounds, sharing confidential profiles, and arranging face-to-face
+                    meetings only when both families are ready.
                   </p>
                 </div>
               </div>
@@ -85,8 +83,8 @@ export function About() {
 
             <ScrollReveal direction="right" delay={0.2}>
               <img
-                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80"
-                alt="Wedding celebration"
+                src={images.aboutStory}
+                alt="Confidential matrimonial consultation"
                 className="w-full h-[400px] object-cover rounded-sm"
                 loading="lazy"
               />
@@ -97,19 +95,14 @@ export function About() {
 
       <section className="py-20 md:py-28 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            subtitle="What Drives Us"
-            title="Mission, Vision & Values"
-          />
+          <SectionHeading subtitle="What Drives Us" title="Mission, Vision & Values" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((v, i) => (
               <ScrollReveal key={v.title} delay={i * 0.15}>
-                <div className="p-8 rounded-sm border border-gold/15 bg-bg text-center hover:border-gold/40 transition-colors duration-300 h-full">
+                <div className="p-8 rounded-sm border border-gold/15 bg-bg card-shadow text-center hover:border-gold/40 transition-colors duration-300 h-full">
                   <div className="text-gold flex justify-center mb-6">{v.icon}</div>
                   <h3 className="font-serif text-xl text-text mb-4">{v.title}</h3>
-                  <p className="text-text-muted text-sm leading-relaxed">
-                    {v.description}
-                  </p>
+                  <p className="text-text-muted text-sm leading-relaxed">{v.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -123,7 +116,7 @@ export function About() {
             <ScrollReveal direction="left">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80"
+                  src={images.founder}
                   alt={siteConfig.founder.name}
                   className="w-full max-w-md mx-auto h-[500px] object-cover rounded-sm"
                   loading="lazy"
@@ -149,7 +142,7 @@ export function About() {
                 </blockquote>
                 <div className="mt-8">
                   <Button to="/contact" size="md">
-                    Work With Us
+                    Register Your Interest
                   </Button>
                 </div>
               </div>

@@ -1,3 +1,5 @@
+import { images } from './images'
+
 export interface HeroSlide {
   id: string
   image: string
@@ -8,30 +10,26 @@ export interface HeroSlide {
 export const heroSlides: HeroSlide[] = [
   {
     id: '1',
-    image:
-      'https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80',
-    title: 'Crafting Dreams Into',
-    subtitle: 'Unforgettable Celebrations',
+    image: images.hero1,
+    title: 'Personal Matchmaking',
+    subtitle: 'For Elite Families & NRIs',
   },
   {
     id: '2',
-    image:
-      'https://images.unsplash.com/photo-1519167758481-83f29da8c2f2?w=1920&q=80',
-    title: 'Destination Weddings',
-    subtitle: 'Across the Finest Venues in India',
+    image: images.hero3,
+    title: '100% Private',
+    subtitle: 'Your Details Never Go Public',
   },
   {
     id: '3',
-    image:
-      'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80',
-    title: 'From Mehndi to Reception',
-    subtitle: 'Every Ceremony, Perfectly Planned',
+    image: images.hero2,
+    title: 'Verified Backgrounds',
+    subtitle: 'Financial, Personal & Family Checks',
   },
   {
     id: '4',
-    image:
-      'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80',
-    title: 'Your Love Story',
-    subtitle: 'Deserves a Fairy Tale Wedding',
+    image: images.hero4,
+    title: 'Curated Meetings',
+    subtitle: 'Face-to-Face, On Your Terms',
   },
 ]

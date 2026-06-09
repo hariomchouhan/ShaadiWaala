@@ -1,31 +1,34 @@
 export const siteConfig = {
   name: 'ShaadiWaala',
-  tagline: 'Crafting Dreams Into Unforgettable Celebrations',
+  tagline: 'Where Elite Families Find Their Perfect Match',
   description:
-    'Premium destination wedding planners based in Jaipur. From intimate gatherings to lavish affairs, we bring your dream wedding to life across India.',
-  phone: '+91 98765 43210',
-  email: 'hello@shaadiwaala.com',
-  whatsapp: '919876543210',
-  address: 'C-Scheme, Jaipur, Rajasthan 302001, India',
-  businessHours: 'Mon – Sat: 10:00 AM – 7:00 PM',
+    'ShaadiWaala is a premium, privacy-first matrimonial service exclusively for Elite families and NRIs. We offer personal-level matchmaking with thorough background verification — never public listings.',
+  eliteNote:
+    'We exclusively serve Elite-class families and NRIs. We do not work with small-scale or casual enquiries.',
+  phone: '+919302467921',
+  phone2: '+919425315586',
+  email: 'shaadiwaala.in@gmail.com',
+  whatsapp: '919302467921',
+  address: '1, Blue Bells Complex, 16, Vishnu Puri Main, Indore, India',
+  businessHours: 'Mon – Sat: 11:00 AM – 7:00 PM',
   founder: {
     name: 'Arun Singh',
-    title: 'Founder & Creative Director',
+    title: 'Founder & Head of Matchmaking',
     quote:
-      'Every wedding is a love story waiting to be told. My team and I pour our hearts into making yours the most beautiful chapter.',
-    bio: 'With over 15 years of experience in luxury event management, Arun founded ShaadiWaala with a vision to transform wedding planning in India. His meticulous attention to detail and passion for creating bespoke celebrations has earned the trust of hundreds of families across the country.',
+      'A lifelong partnership deserves more than a public profile. We match families with discretion, depth, and complete confidentiality.',
+    bio: 'With over 15 years in premium matrimonial consulting, Arun founded ShaadiWaala to serve Elite and NRI families who value privacy, verified backgrounds, and personally curated matches over mass-market listings.',
   },
   social: {
     instagram: 'https://instagram.com/shaadiwaala',
     facebook: 'https://facebook.com/shaadiwaala',
-    whatsapp: 'https://wa.me/919876543210',
+    whatsapp: 'https://wa.me/919302467921',
   },
   stats: [
-    { label: 'Weddings Completed', value: 780, suffix: '+' },
-    { label: 'Client Satisfaction', value: 97, suffix: '%' },
-    { label: 'Cities Covered', value: 25, suffix: '+' },
-    { label: 'Years of Excellence', value: 15, suffix: '+' },
+    { label: 'Successful Matches', value: 500, suffix: '+' },
+    { label: 'Elite Families Served', value: 350, suffix: '+' },
+    { label: 'NRI Clients', value: 120, suffix: '+' },
+    { label: 'Years of Trust', value: 15, suffix: '+' },
   ],
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.5!2d75.7873!3d26.9124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDU0JzQ0LjYiTiA3NcKwNDcnMTQuMyJF!5e0!3m2!1sen!2sin!4v1',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000.5322644223438!2d75.8641914695993!3d22.691038736014356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd81d5b5f2cb%3A0x6fd2f860a252245d!2sBlue%20Bells%20Hotel!5e1!3m2!1sen!2sin!4v1780728176218!5m2!1sen!2sin',
 }

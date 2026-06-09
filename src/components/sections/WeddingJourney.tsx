@@ -28,7 +28,7 @@ export function WeddingJourney() {
               <div
                 className={`w-12 h-12 rounded-full border-2 flex items-center justify-center font-serif text-sm transition-all duration-300 ${
                   active === step.id
-                    ? 'border-gold bg-gold text-bg scale-110'
+                    ? 'border-gold bg-gold text-white scale-110'
                     : 'border-gold/30 bg-surface text-gold group-hover:border-gold'
                 }`}
               >
@@ -78,9 +78,9 @@ export function WeddingJourney() {
                 className="w-full h-[300px] md:h-[400px] object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="font-serif text-3xl text-text">{activeStep.name}</h3>
+                <h3 className="font-serif text-3xl text-white">{activeStep.name}</h3>
               </div>
             </div>
             <div className="space-y-4">

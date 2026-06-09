@@ -7,7 +7,7 @@ const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
-  { label: 'Portfolio', to: '/portfolio' },
+  { label: 'How It Works', to: '/how-it-works' },
   { label: 'Contact', to: '/contact' },
 ]
 
@@ -34,7 +34,7 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled || mobileOpen
-            ? 'glass-nav border-b border-gold/10 py-3'
+            ? 'glass-nav py-3'
             : 'bg-transparent py-5'
         }`}
       >
@@ -65,7 +65,7 @@ export function Navbar() {
 
           <div className="hidden lg:block">
             <Button to="/contact" size="sm">
-              Plan Your Wedding
+              Register Interest
             </Button>
           </div>
 
@@ -95,7 +95,7 @@ export function Navbar() {
             </Link>
           ))}
           <Button to="/contact" size="lg">
-            Plan Your Wedding
+            Register Interest
           </Button>
         </div>
       )}

@@ -9,9 +9,9 @@ export function Testimonials() {
     <section className="py-20 md:py-28 bg-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          subtitle="Happy Couples"
+          subtitle="Family Testimonials"
           title="What Our Clients Say"
-          description="Real stories from couples who trusted us with their most special day."
+          description="Trusted by Elite and NRI families who value privacy, verification, and personally curated matches."
         />
 
         <Swiper
@@ -28,7 +28,7 @@ export function Testimonials() {
         >
           {testimonials.map((t) => (
             <SwiperSlide key={t.id}>
-              <div className="p-8 rounded-sm border border-gold/15 bg-surface h-full flex flex-col">
+              <div className="p-8 rounded-sm border border-gold/15 bg-bg card-shadow h-full flex flex-col">
                 <Quote className="w-8 h-8 text-gold/40 mb-4" />
                 <p className="text-text-muted text-sm leading-relaxed flex-1 mb-6 italic">
                   &ldquo;{t.quote}&rdquo;
