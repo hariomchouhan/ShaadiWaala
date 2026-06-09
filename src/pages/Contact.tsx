@@ -15,15 +15,13 @@ export function Contact() {
     const form = e.currentTarget
     const data = new FormData(form)
     const name = data.get('name') as string
-    const email = data.get('email') as string
     const phone = data.get('phone') as string
-    const date = data.get('date') as string
     const city = data.get('city') as string
-    const message = data.get('message') as string
+    const age = data.get('age') as string
 
-    const subject = encodeURIComponent(`Wedding Enquiry from ${name}`)
+    const subject = encodeURIComponent(`Matrimonial Enquiry from ${name}`)
     const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nWedding Date: ${date}\nCity: ${city}\n\nMessage:\n${message}`
+      `Name: ${name}\nPhone: ${phone}\nCity: ${city}\nAge: ${age}`
     )
     window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`
     setSubmitted(true)
@@ -82,7 +80,7 @@ export function Contact() {
                       name="name"
                       type="text"
                       required
-                      className="w-full px-4 py-3 bg-surface border border-gold/20 rounded-sm text-text focus:border-gold focus:outline-none transition-colors"
+                      className={inputClass}
                       placeholder="Your name"
                     />
                   </div>
@@ -96,7 +94,7 @@ export function Contact() {
                       name="phone"
                       type="tel"
                       required
-                      className="w-full px-4 py-3 bg-surface border border-gold/20 rounded-sm text-text focus:border-gold focus:outline-none transition-colors"
+                      className={inputClass}
                       placeholder="+91 XXXXX XXXXX"
                     />
                   </div>
@@ -111,8 +109,8 @@ export function Contact() {
                       id="city"
                       name="city"
                       type="text"
-                      className="w-full px-4 py-3 bg-surface border border-gold/20 rounded-sm text-text focus:border-gold focus:outline-none transition-colors"
-                      placeholder="Jaipur, Udaipur, etc."
+                      className={inputClass}
+                      placeholder="Your city"
                     />
                   </div>
                   <div>
@@ -123,7 +121,7 @@ export function Contact() {
                       id="age"
                       name="age"
                       type="text"
-                      className="w-full px-4 py-3 bg-surface border border-gold/20 rounded-sm text-text focus:border-gold focus:outline-none transition-colors"
+                      className={inputClass}
                       placeholder="Enter your age"
                     />
                   </div>
