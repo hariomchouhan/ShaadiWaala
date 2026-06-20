@@ -1,31 +1,42 @@
 import { useState, type FormEvent } from 'react'
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Lock } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Lock, AlertCircle } from 'lucide-react'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { Button } from '../components/ui/Button'
 import { siteConfig } from '../data/siteConfig'
+import { submitContactQuery } from '../services/queryService'
 
 const inputClass =
   'w-full px-4 py-3 bg-surface border border-gold/20 rounded-sm text-text focus:border-gold focus:outline-none transition-colors'
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
+    setError(null)
+
     const form = e.currentTarget
     const data = new FormData(form)
-    const name = data.get('name') as string
-    const phone = data.get('phone') as string
-    const city = data.get('city') as string
-    const age = data.get('age') as string
 
-    const subject = encodeURIComponent(`Matrimonial Enquiry from ${name}`)
-    const body = encodeURIComponent(
-      `Name: ${name}\nPhone: ${phone}\nCity: ${city}\nAge: ${age}`
-    )
-    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`
-    setSubmitted(true)
-    form.reset()
+    try {
+      await submitContactQuery({
+        name: data.get('name') as string,
+        phone: data.get('phone') as string,
+        city: (data.get('city') as string) || '',
+        age: (data.get('age') as string) || '',
+      })
+
+      setSubmitted(true)
+      form.reset()
+    } catch (err) {
+      console.error('Failed to submit enquiry:', err)
+      setError('Something went wrong. Please try again or contact us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -65,71 +76,79 @@ export function Contact() {
               {submitted && (
                 <div className="flex items-center gap-3 p-4 mb-6 rounded-sm border border-gold/30 bg-gold/5 text-gold text-sm">
                   <CheckCircle className="w-5 h-5 shrink-0" />
-                  Thank you! Your enquiry has been prepared. Our team will contact you shortly.
+                  Thank you! Your enquiry has been submitted. Our team will contact you shortly.
+                </div>
+              )}
+
+              {error && (
+                <div className="flex items-center gap-3 p-4 mb-6 rounded-sm border border-red-300 bg-red-50 text-red-700 text-sm">
+                  <AlertCircle className="w-5 h-5 shrink-0" />
+                  {error}
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-5"> */}
-                  <div>
-                    <label htmlFor="name" className="block text-text-muted text-sm mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      className={inputClass}
-                      placeholder="Your name"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="name" className="block text-text-muted text-sm mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    disabled={loading}
+                    className={inputClass}
+                    placeholder="Your name"
+                  />
+                </div>
 
-                  <div>
-                    <label htmlFor="phone" className="block text-text-muted text-sm mb-2">
-                      Phone *
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      className={inputClass}
-                      placeholder="+91 XXXXX XXXXX"
-                    />
-                  </div>
-                {/* </div> */}
+                <div>
+                  <label htmlFor="phone" className="block text-text-muted text-sm mb-2">
+                    Phone *
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    disabled={loading}
+                    className={inputClass}
+                    placeholder="+91 XXXXX XXXXX"
+                  />
+                </div>
 
-                {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-5"> */}
-                  <div>
-                    <label htmlFor="city" className="block text-text-muted text-sm mb-2">
-                      City / Venue
-                    </label>
-                    <input
-                      id="city"
-                      name="city"
-                      type="text"
-                      className={inputClass}
-                      placeholder="Your city"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="age" className="block text-text-muted text-sm mb-2">
-                      Age
-                    </label>
-                    <input
-                      id="age"
-                      name="age"
-                      type="text"
-                      className={inputClass}
-                      placeholder="Enter your age"
-                    />
-                  </div>
-                {/* </div> */}
+                <div>
+                  <label htmlFor="city" className="block text-text-muted text-sm mb-2">
+                    City
+                  </label>
+                  <input
+                    id="city"
+                    name="city"
+                    type="text"
+                    disabled={loading}
+                    className={inputClass}
+                    placeholder="Your city"
+                  />
+                </div>
 
-                <Button type="submit" size="lg">
+                <div>
+                  <label htmlFor="age" className="block text-text-muted text-sm mb-2">
+                    Age
+                  </label>
+                  <input
+                    id="age"
+                    name="age"
+                    type="text"
+                    disabled={loading}
+                    className={inputClass}
+                    placeholder="Enter your age"
+                  />
+                </div>
+
+                <Button type="submit" size="lg" className={loading ? 'opacity-70 pointer-events-none' : ''}>
                   <Send className="w-4 h-4" />
-                  Submit Private Enquiry
+                  {loading ? 'Submitting...' : 'Submit Private Enquiry'}
                 </Button>
               </form>
             </div>
