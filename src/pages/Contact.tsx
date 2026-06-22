@@ -4,6 +4,7 @@ import { SectionHeading } from '../components/ui/SectionHeading'
 import { Button } from '../components/ui/Button'
 import { siteConfig } from '../data/siteConfig'
 import { submitContactQuery } from '../services/queryService'
+import type { LookingFor } from '../types/query'
 
 const inputClass =
   'w-full px-4 py-3 bg-surface border border-gold/20 rounded-sm text-text focus:border-gold focus:outline-none transition-colors'
@@ -26,7 +27,7 @@ export function Contact() {
         name: data.get('name') as string,
         phone: data.get('phone') as string,
         city: (data.get('city') as string) || '',
-        age: (data.get('age') as string) || '',
+        lookingFor: data.get('lookingFor') as LookingFor,
       })
 
       setSubmitted(true)
@@ -133,17 +134,20 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="age" className="block text-text-muted text-sm mb-2">
-                    Age
+                  <label htmlFor="lookingFor" className="block text-text-muted text-sm mb-2">
+                    Looking For *
                   </label>
-                  <input
-                    id="age"
-                    name="age"
-                    type="text"
+                  <select
+                    id="lookingFor"
+                    name="lookingFor"
+                    required
                     disabled={loading}
                     className={inputClass}
-                    placeholder="Enter your age"
-                  />
+                  >
+                    <option value="">Select</option>
+                    <option value="bride">Bride</option>
+                    <option value="groom">Groom</option>
+                  </select>
                 </div>
 
                 <Button type="submit" size="lg" className={loading ? 'opacity-70 pointer-events-none' : ''}>

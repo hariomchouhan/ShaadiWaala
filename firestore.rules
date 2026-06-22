@@ -5,14 +5,14 @@ service cloud.firestore {
   // Contact form submissions — public can create only; admin manages via Firebase Console or admin app
     match /queries/{queryId} {
       allow create: if request.resource.data.keys().hasAll([
-          'name', 'phone', 'city', 'age', 'status', 'createdAt', 'updatedAt'
+          'name', 'phone', 'city', 'lookingFor', 'status', 'createdAt', 'updatedAt'
         ])
         && request.resource.data.name is string
         && request.resource.data.name.size() > 0
         && request.resource.data.phone is string
         && request.resource.data.phone.size() > 0
         && request.resource.data.city is string
-        && request.resource.data.age is string
+        && request.resource.data.lookingFor in ['bride', 'groom']
         && request.resource.data.status == 'new';
 
       allow read, update, delete: if false;

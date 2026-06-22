@@ -10,7 +10,7 @@ export async function submitContactQuery(data: ContactQueryInput): Promise<strin
     name: data.name.trim(),
     phone: data.phone.trim(),
     city: data.city.trim(),
-    age: data.age.trim(),
+    lookingFor: data.lookingFor,
     status: 'new',
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),

@@ -7,11 +7,13 @@ export type QueryStatus =
   | 'resolved'
   | 'closed'
 
+export type LookingFor = 'bride' | 'groom'
+
 export interface ContactQueryInput {
   name: string
   phone: string
   city: string
-  age: string
+  lookingFor: LookingFor
 }
 
 export interface ContactQuery extends ContactQueryInput {
