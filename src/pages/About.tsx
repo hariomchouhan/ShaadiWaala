@@ -66,10 +66,10 @@ export function About() {
                     verification, or personal attention that such families deserve.
                   </p>
                   <p>
-                    ShaadiWaala was founded to fill that gap. We work exclusively with
-                    Elite-class families and NRIs, providing one-on-one matchmaking where
-                    every enquiry is handled privately. We do not list profiles publicly,
-                    and we do not work with small-scale or casual enquiries.
+                    Founded in 2010 by Mr. Parvinder Singh Bhatia, ShaadiWaala was built
+                    with a vision to redefine professional matchmaking for Elite families
+                    and NRIs. With over 16 years of trusted service, we work exclusively
+                    through personal, one-on-one consultations — never public listings.
                   </p>
                   <p>
                     From the first contact form to the final personal meeting, our team
@@ -112,9 +112,9 @@ export function About() {
 
       <section className="py-20 md:py-28 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <ScrollReveal direction="left">
-              <div className="relative">
+              <div className="relative lg:sticky lg:top-32">
                 <img
                   src={images.founder}
                   alt={siteConfig.founder.name}
@@ -122,29 +122,45 @@ export function About() {
                   loading="lazy"
                 />
                 <div className="absolute -bottom-4 -left-4 w-full h-full border border-gold/30 rounded-sm -z-10 max-w-md mx-auto" />
+
+                <div className="grid grid-cols-2 gap-3 mt-10 max-w-md mx-auto">
+                  {siteConfig.founder.highlights.map((item) => (
+                    <div
+                      key={item.label}
+                      className="p-4 rounded-sm border border-gold/15 bg-surface text-center"
+                    >
+                      <p className="font-serif text-xl text-gold">{item.value}</p>
+                      <p className="text-text-muted text-xs mt-1">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={0.2}>
               <div>
                 <span className="text-gold text-sm tracking-[0.25em] uppercase">
-                  Meet the Founder
+                  Founder & Director
                 </span>
                 <h2 className="font-serif text-3xl md:text-4xl text-text mt-3 mb-2">
                   {siteConfig.founder.name}
                 </h2>
                 <p className="text-gold text-sm mb-6">{siteConfig.founder.title}</p>
-                <p className="text-text-muted leading-relaxed mb-6">
-                  {siteConfig.founder.bio}
-                </p>
-                <blockquote className="border-l-2 border-gold pl-6 italic text-text-muted">
+
+                <div className="space-y-4 text-text-muted leading-relaxed mb-8">
+                  <p>{siteConfig.founder.intro}</p>
+                  {siteConfig.founder.paragraphs.map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                  ))}
+                </div>
+
+                <blockquote className="border-l-2 border-gold pl-6 italic text-text-muted mb-8">
                   &ldquo;{siteConfig.founder.quote}&rdquo;
                 </blockquote>
-                <div className="mt-8">
-                  <Button to="/contact" size="md">
-                    Register Your Interest
-                  </Button>
-                </div>
+
+                <Button to="/contact" size="md">
+                  Register Your Interest
+                </Button>
               </div>
             </ScrollReveal>
           </div>

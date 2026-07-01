@@ -15,6 +15,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const isHome = location.pathname === '/'
+  const onHero = isHome && !scrolled && !mobileOpen
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -33,9 +35,11 @@ export function Navbar() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled || mobileOpen
-            ? 'glass-nav py-3'
-            : 'bg-transparent py-5'
+          mobileOpen || scrolled
+            ? 'glass-nav py-3 shadow-sm'
+            : onHero
+              ? 'bg-gradient-to-b from-black/75 via-black/45 to-transparent py-5'
+              : 'glass-nav py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -43,7 +47,7 @@ export function Navbar() {
             <img
               src="/logo.png"
               alt="ShaadiWaala"
-              className="h-10 md:h-12 w-auto"
+              className="h-10 md:h-16 w-auto"
             />
           </Link>
 
@@ -52,10 +56,14 @@ export function Navbar() {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm tracking-wide transition-colors duration-300 hover:text-gold ${
-                  location.pathname === link.to
-                    ? 'text-gold'
-                    : 'text-text-muted'
+                className={`text-sm font-medium tracking-wide transition-colors duration-300 ${
+                  onHero
+                    ? location.pathname === link.to
+                      ? 'text-gold-light drop-shadow-md'
+                      : 'text-white hover:text-gold-light drop-shadow-md'
+                    : location.pathname === link.to
+                      ? 'text-gold'
+                      : 'text-text hover:text-gold'
                 }`}
               >
                 {link.label}
@@ -72,7 +80,9 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-gold p-2"
+            className={`lg:hidden p-2 transition-colors ${
+              onHero ? 'text-white' : 'text-gold'
+            }`}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
