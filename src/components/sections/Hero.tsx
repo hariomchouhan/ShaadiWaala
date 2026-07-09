@@ -2,9 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import { Button } from '../ui/Button'
 import { heroSlides } from '../../data/heroSlides'
-import { siteConfig } from '../../data/siteConfig'
 
 export function Hero() {
   return (
@@ -25,14 +23,14 @@ export function Hero() {
                 alt={slide.title}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+              {/* <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65" /> */}
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" /> */}
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
+      {/* <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,7 +57,7 @@ export function Hero() {
             </Button>
           </div>
         </motion.div>
-      </div>
+      </div> */}
 
       <motion.a
         href="#intro"

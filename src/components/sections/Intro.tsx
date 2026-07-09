@@ -1,21 +1,20 @@
-import { Heart, Shield, Lock } from 'lucide-react'
+import { Heart, Shield, Lock, Users } from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
-import { siteConfig } from '../../data/siteConfig'
 import { images } from '../../data/images'
 
 const highlights = [
   {
     icon: <Lock className="w-5 h-5" />,
-    text: '100% private — your details never appear publicly',
+    text: 'Complete Privacy — No Public Profiles',
   },
   {
     icon: <Shield className="w-5 h-5" />,
-    text: 'Full background verification for both families',
+    text: 'Personal Verification of Every Family',
   },
   {
-    icon: <Heart className="w-5 h-5" />,
-    text: 'Personal matchmaking, not mass-market listings',
+    icon: <Users className="w-5 h-5" />,
+    text: 'Parent-to-Parent Personalized Matchmaking',
   },
 ]
 
@@ -25,9 +24,16 @@ export function Intro() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           subtitle="Welcome"
-          title="A New Standard in Matrimony"
-          description="ShaadiWaala connects Elite families and NRIs through personal, confidential matchmaking — with verified backgrounds and curated meetings."
+          title="A New Standard in Personalized Matchmaking"
+          description="Where Elite Families Find Lifelong Relationships with Trust & Discretion"
         />
+
+        <p className="text-text-muted text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          ShaadiWaala is an exclusive, privacy-first matrimonial service for Elite Indian
+          families and NRIs. We personally connect compatible families through confidential,
+          one-to-one matchmaking backed by thorough background verification and genuine
+          family interactions.
+        </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <ScrollReveal direction="left">
@@ -45,19 +51,25 @@ export function Intro() {
           <ScrollReveal direction="right" delay={0.2}>
             <div className="space-y-6">
               <p className="text-text-muted text-base md:text-lg leading-relaxed">
-                {siteConfig.description}
+                At ShaadiWaala, matchmaking is not driven by algorithms or public profiles.
+                Every introduction is personally managed by our experienced relationship team,
+                ensuring complete privacy, authenticity, and compatibility.
               </p>
               <p className="text-text-muted text-base md:text-lg leading-relaxed">
-                Whether you are a bride family or a groom family, our process begins
-                with a private enquiry. We contact you personally, collect every
-                detail that matters — age, community, education, profession, financial
-                background, and partner preferences — and match you only when
-                requirements align on both sides.
+                Whether you&apos;re a bride&apos;s family or a groom&apos;s family, we work
+                directly with parents to understand every important detail—from family values
+                and lifestyle to education, profession, financial background, and future
+                expectations.
+              </p>
+              <p className="text-text-muted text-base md:text-lg leading-relaxed">
+                Before any introduction is made, we personally verify every family&apos;s
+                background and social standing, helping you build relationships with confidence
+                and peace of mind.
               </p>
 
-              <ul className="space-y-3">
+              <ul className="space-y-3 pt-2">
                 {highlights.map((item) => (
-                  <li key={item.text} className="flex items-start gap-3 text-text-muted text-sm">
+                  <li key={item.text} className="flex items-start gap-3 text-text text-sm md:text-base">
                     <span className="text-gold mt-0.5 shrink-0">{item.icon}</span>
                     {item.text}
                   </li>

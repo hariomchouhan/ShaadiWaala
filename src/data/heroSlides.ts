@@ -9,12 +9,6 @@ export interface HeroSlide {
 
 export const heroSlides: HeroSlide[] = [
   {
-    id: '1',
-    image: images.hero1,
-    title: 'Personal Matchmaking',
-    subtitle: 'For Elite Families & NRIs',
-  },
-  {
     id: '2',
     image: images.hero3,
     title: '100% Private',
@@ -27,9 +21,15 @@ export const heroSlides: HeroSlide[] = [
     subtitle: 'Financial, Personal & Family Checks',
   },
   {
-    id: '4',
-    image: images.hero4,
-    title: 'Curated Meetings',
-    subtitle: 'Face-to-Face, On Your Terms',
+    id: '1',
+    image: images.hero1,
+    title: 'Personal Matchmaking',
+    subtitle: 'For Elite Families & NRIs',
   },
+  // {
+  //   id: '4',
+  //   image: images.hero4,
+  //   title: 'Curated Meetings',
+  //   subtitle: 'Face-to-Face, On Your Terms',
+  // },
 ]
