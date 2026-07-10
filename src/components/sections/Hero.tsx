@@ -6,65 +6,37 @@ import { heroSlides } from '../../data/heroSlides'
 
 export function Hero() {
   return (
-    <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
+    <section className="mt-20 md:mt-0 bg-bg relative w-full overflow-hidden md:h-screen md:min-h-[600px]">
       <Swiper
         modules={[Autoplay, EffectFade, Pagination]}
         effect="fade"
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         loop
-        className="hero-swiper h-full w-full"
+        autoHeight
+        className="hero-swiper w-full md:h-full"
       >
         {heroSlides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative h-full w-full">
+            <div className="relative w-full flex items-center justify-center bg-bg md:h-full">
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="hero-slide-image"
+                loading={slide.id === heroSlides[0].id ? 'eager' : 'lazy'}
+                fetchPriority={slide.id === heroSlides[0].id ? 'high' : 'auto'}
               />
-              {/* <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65" /> */}
-              {/* <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" /> */}
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pointer-events-none">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl pointer-events-auto"
-        >
-          <p className="text-gold text-sm md:text-base tracking-[0.3em] uppercase mb-4 font-medium">
-            Elite & NRI Matrimony
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-4">
-            {heroSlides[0].title}
-            <br />
-            <span className="text-gold-light">{heroSlides[0].subtitle}</span>
-          </h1>
-          <p className="text-white/85 text-base md:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-            {siteConfig.description}
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button to="/contact" size="lg">
-              Register Your Interest
-            </Button>
-            <Button to="/how-it-works" variant="outline" size="lg">
-              How It Works
-            </Button>
-          </div>
-        </motion.div>
-      </div> */}
 
       <motion.a
         href="#intro"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-gold animate-bounce"
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-gold animate-bounce"
         aria-label="Scroll down"
       >
         <ChevronDown className="w-8 h-8" />

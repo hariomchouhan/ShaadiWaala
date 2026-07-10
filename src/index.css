@@ -102,6 +102,53 @@ h4 {
   box-shadow: 0 1px 0 rgba(197, 160, 89, 0.12);
 }
 
+.hero-swiper .swiper-slide > div {
+  width: 100%;
+  background-color: var(--bg);
+}
+
+.hero-slide-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (min-width: 768px) {
+  .hero-swiper,
+  .hero-swiper .swiper-wrapper,
+  .hero-swiper .swiper-slide {
+    height: 100%;
+  }
+
+  .hero-swiper .swiper-slide > div {
+    height: 100%;
+  }
+
+  .hero-slide-image {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-slide-image {
+    object-position: center top;
+  }
+}
+
+.hero-swiper .swiper-pagination {
+  bottom: 0.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .hero-swiper .swiper-pagination {
+    bottom: 1.5rem !important;
+  }
+}
+
 .hero-swiper .swiper-pagination-bullet {
   background: rgba(255, 255, 255, 0.5);
   opacity: 1;

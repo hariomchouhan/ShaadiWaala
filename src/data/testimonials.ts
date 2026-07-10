@@ -10,56 +10,74 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    couple: 'Elite Family, Indore',
-    venue: 'NRI Groom Match',
-    date: '2024',
+    couple: 'Baniya Business Family, Indore',
+    venue: 'Successful Match',
+    date: '2022',
     quote:
-      'The discretion and thoroughness impressed us immediately. They understood our family\'s expectations and found a match that aligned perfectly — without ever exposing our details publicly.',
+      'ShaadiWaala understood our family\'s values from the very first conversation. Their personal verification process and confidential approach gave us complete confidence throughout the journey.',
     rating: 5,
   },
   {
     id: '2',
-    couple: 'Business Family, Mumbai',
+    couple: 'Jain Family, Ahmedabad',
     venue: 'Elite Bride Match',
-    date: '2024',
+    date: '2023',
     quote:
-      'Background verification gave us complete peace of mind. Every detail was checked before we even met the other family. The personal meetup was arranged flawlessly.',
+      'We were looking for a service that values privacy and genuine family connections. ShaadiWaala introduced us only to verified Jain families that matched our expectations.',
     rating: 5,
   },
   {
     id: '3',
-    couple: 'NRI Family, USA',
-    venue: 'Cross-border Match',
-    date: '2023',
+    couple: 'Brahmin Family, Pune',
+    venue: 'Verified Match',
+    date: '2024',
     quote:
-      'As an NRI family, we needed someone who understood both Indian traditions and international expectations. ShaadiWaala handled everything with utmost professionalism and privacy.',
+      'Every introduction reflected careful screening and genuine compatibility. Their family-first approach made the entire experience smooth, respectful, and trustworthy.',
     rating: 5,
   },
   {
     id: '4',
-    couple: 'Industrialist Family, Delhi',
-    venue: 'Elite Alliance',
+    couple: 'Sikh Business Family, Ludhiana',
+    venue: 'Elite Groom Match',
     date: '2023',
     quote:
-      'We appreciated that neither family knew about the other until we both approved. The profile sharing was detailed enough to decide, yet completely confidential.',
+      'Finding the right Sikh family required trust more than technology. ShaadiWaala personally verified every detail before arranging introductions, which gave us complete peace of mind.',
     rating: 5,
   },
   {
     id: '5',
-    couple: 'Doctor Family, Bhopal',
-    venue: 'Professional Match',
+    couple: 'Punjabi Family, Chandigarh',
+    venue: 'Family Match',
     date: '2025',
     quote:
-      'From the first call to the final meeting, everything was handled personally. No portals, no public listings — just genuine, curated matchmaking for families like ours.',
+      'Their personalized approach was exceptional. They understood our family\'s expectations and connected us only with compatible Punjabi families while maintaining complete confidentiality.',
     rating: 5,
   },
   {
     id: '6',
-    couple: 'NRI Family, UK',
-    venue: 'Elite Groom Match',
+    couple: 'Sindhi Family, Mumbai',
+    venue: 'Successful Match',
+    date: '2024',
+    quote:
+      'Unlike traditional matrimonial portals, ShaadiWaala offered a truly personal experience. Every family was verified, and every meeting was arranged with professionalism and discretion.',
+    rating: 5,
+  },
+  {
+    id: '7',
+    couple: 'NRI Punjabi Family, Brampton, Canada',
+    venue: 'NRI Match',
     date: '2025',
     quote:
-      'The financial and family verification process was thorough and transparent. We felt confident proceeding because every detail had been personally verified by their team.',
+      'Being based in Canada, we needed someone we could completely trust in India. ShaadiWaala personally verified every family, coordinated every discussion, and made the entire process effortless.',
+    rating: 5,
+  },
+  {
+    id: '8',
+    couple: 'Elite Family, Indore',
+    venue: 'NRI Groom Match',
+    date: '2024',
+    quote:
+      'The privacy they maintain is exceptional. Our details were never made public, and every meeting was arranged only after complete mutual consent.',
     rating: 5,
   },
 ]

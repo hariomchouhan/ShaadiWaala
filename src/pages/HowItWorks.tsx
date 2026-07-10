@@ -1,8 +1,27 @@
-import { Lock, Shield, EyeOff } from 'lucide-react'
+import {
+  Lock,
+  Shield,
+  EyeOff,
+  FileText,
+  PhoneCall,
+  ClipboardList,
+  ShieldCheck,
+  UserRoundSearch,
+  Users,
+} from 'lucide-react'
 import { SectionHeading } from '../components/ui/SectionHeading'
 import { ScrollReveal } from '../components/ui/ScrollReveal'
 import { howItWorks } from '../data/howItWorks'
 import { ContactCTA } from '../components/sections/ContactCTA'
+
+const stepIcons: Record<string, React.ReactNode> = {
+  register: <FileText className="w-6 h-6" />,
+  consultation: <PhoneCall className="w-6 h-6" />,
+  profiling: <ClipboardList className="w-6 h-6" />,
+  verification: <ShieldCheck className="w-6 h-6" />,
+  matching: <UserRoundSearch className="w-6 h-6" />,
+  meetup: <Users className="w-6 h-6" />,
+}
 
 const privacyPoints = [
   {
@@ -47,8 +66,8 @@ export function HowItWorksPage() {
             {howItWorks.map((step, i) => (
               <ScrollReveal key={step.id} delay={i * 0.06}>
                 <div className="flex gap-6 p-6 md:p-8 rounded-sm border border-gold/15 bg-surface card-shadow">
-                  <div className="w-12 h-12 rounded-full border-2 border-gold bg-gold/10 flex items-center justify-center font-serif text-lg text-gold shrink-0">
-                    {step.step}
+                  <div className="w-12 h-12 rounded-full border-2 border-gold bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                    {stepIcons[step.id]}
                   </div>
                   <div>
                     <h3 className="font-serif text-xl text-text mb-2">{step.title}</h3>

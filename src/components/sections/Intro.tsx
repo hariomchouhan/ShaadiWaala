@@ -20,7 +20,7 @@ const highlights = [
 
 export function Intro() {
   return (
-    <section id="intro" className="py-20 md:py-28 bg-bg">
+    <section id="intro" className="pt-10 pb-16 md:py-28 bg-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           subtitle="Welcome"

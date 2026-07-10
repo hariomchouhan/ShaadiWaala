@@ -1,7 +1,24 @@
+import {
+  Lock,
+  FileText,
+  PhoneCall,
+  ClipboardList,
+  ShieldCheck,
+  UserRoundSearch,
+  Users,
+} from 'lucide-react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { ScrollReveal } from '../ui/ScrollReveal'
 import { howItWorks } from '../../data/howItWorks'
-import { Lock } from 'lucide-react'
+
+const stepIcons: Record<string, React.ReactNode> = {
+  register: <FileText className="w-6 h-6" />,
+  consultation: <PhoneCall className="w-6 h-6" />,
+  profiling: <ClipboardList className="w-6 h-6" />,
+  verification: <ShieldCheck className="w-6 h-6" />,
+  matching: <UserRoundSearch className="w-6 h-6" />,
+  meetup: <Users className="w-6 h-6" />,
+}
 
 export function HowItWorks() {
   return (
@@ -25,8 +42,8 @@ export function HowItWorks() {
           {howItWorks.map((step, i) => (
             <ScrollReveal key={step.id} delay={i * 0.08}>
               <div className="relative p-8 rounded-sm border border-gold/15 bg-bg card-shadow hover:border-gold/40 transition-colors duration-300 h-full">
-                <div className="w-12 h-12 rounded-full border-2 border-gold bg-gold/10 flex items-center justify-center font-serif text-lg text-gold mb-5">
-                  {step.step}
+                <div className="w-12 h-12 rounded-full border-2 border-gold bg-gold/10 flex items-center justify-center text-gold mb-5">
+                  {stepIcons[step.id]}
                 </div>
                 <h3 className="font-serif text-xl text-text mb-3">{step.title}</h3>
                 <p className="text-text-muted text-sm leading-relaxed">

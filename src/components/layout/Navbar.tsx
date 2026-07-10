@@ -38,7 +38,7 @@ export function Navbar() {
           mobileOpen || scrolled
             ? 'glass-nav py-3 shadow-sm'
             : onHero
-              ? 'bg-gradient-to-b from-black/75 via-black/45 to-transparent py-5'
+              ? 'md:bg-gradient-to-b from-black/75 via-black/45 to-transparent py-5'
               : 'glass-nav py-4'
         }`}
       >
@@ -81,7 +81,7 @@ export function Navbar() {
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className={`lg:hidden p-2 transition-colors ${
-              onHero ? 'text-white' : 'text-gold'
+              onHero ? 'text-black' : 'text-gold'
             }`}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >

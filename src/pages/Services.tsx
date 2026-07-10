@@ -8,7 +8,7 @@ import { ContactCTA } from '../components/sections/ContactCTA'
 import { services, categoryLabels, type Service, type ServiceCategory } from '../data/services'
 import { siteConfig } from '../data/siteConfig'
 
-const categories: ServiceCategory[] = ['core', 'bride', 'groom']
+const categories: ServiceCategory[] = ['core']
 
 const categorySubtitles: Record<ServiceCategory, string> = {
   core: 'Our Expertise',
