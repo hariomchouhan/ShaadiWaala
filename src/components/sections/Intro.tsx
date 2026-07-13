@@ -6,15 +6,15 @@ import { images } from '../../data/images'
 const highlights = [
   {
     icon: <Lock className="w-5 h-5" />,
-    text: 'Complete Privacy — No Public Profiles',
+    text: 'Profile to Profile Match Making',
   },
   {
     icon: <Shield className="w-5 h-5" />,
-    text: 'Personal Verification of Every Family',
+    text: 'Complete Privacy',
   },
   {
     icon: <Users className="w-5 h-5" />,
-    text: 'Parent-to-Parent Personalized Matchmaking',
+    text: 'Personal Scrutiny of Every Family',
   },
 ]
 
@@ -49,7 +49,7 @@ export function Intro() {
           </ScrollReveal>
 
           <ScrollReveal direction="right" delay={0.2}>
-            <div className="space-y-6">
+            <div className="space-y-6 text-justify">
               <p className="text-text-muted text-base md:text-lg leading-relaxed">
                 At ShaadiWaala, matchmaking is not driven by algorithms or public profiles.
                 Every introduction is personally managed by our experienced relationship team,

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { Button } from '../ui/Button'
+import { useEnquiryModal } from '../../context/useEnquiryModal'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -15,6 +16,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
+  const { openEnquiryModal } = useEnquiryModal()
   const isHome = location.pathname === '/'
   const onHero = isHome && !scrolled && !mobileOpen
 
@@ -30,6 +32,11 @@ export function Navbar() {
       document.body.style.overflow = ''
     }
   }, [mobileOpen])
+
+  const handleRegisterClick = () => {
+    setMobileOpen(false)
+    openEnquiryModal()
+  }
 
   return (
     <>
@@ -72,7 +79,7 @@ export function Navbar() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button to="/contact" size="sm">
+            <Button size="sm" onClick={openEnquiryModal}>
               Register Interest
             </Button>
           </div>
@@ -104,7 +111,7 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Button to="/contact" size="lg">
+          <Button size="lg" onClick={handleRegisterClick}>
             Register Interest
           </Button>
         </div>

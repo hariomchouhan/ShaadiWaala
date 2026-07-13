@@ -38,14 +38,14 @@ export const siteConfig = {
     ],
   },
   social: {
-    instagram: 'https://instagram.com/shaadiwaala',
-    facebook: 'https://facebook.com/shaadiwaala',
+    instagram: 'https://www.instagram.com/shaadiwaalaindia/',
+    facebook: 'https://www.facebook.com/shaadiwaalaindia',
     whatsapp: 'https://wa.me/919302467921',
   },
   stats: [
     { label: 'Successful Matches', value: 1000, suffix: '+' },
-    { label: 'Elite Families Served', value: 500, suffix: '+' },
-    { label: 'NRI Countries', value: 30, suffix: '+' },
+    { label: 'Elite Families Served', value: 2000, suffix: '+' },
+    { label: '30+ Countries (NRI Family Served)', value: 30, suffix: '+' },
     { label: 'Years of Trust', value: 16, suffix: '+' },
   ],
   mapEmbedUrl:

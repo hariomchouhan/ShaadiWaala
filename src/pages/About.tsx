@@ -6,6 +6,7 @@ import { Stats } from '../components/sections/Stats'
 import { Testimonials } from '../components/sections/Testimonials'
 import { Button } from '../components/ui/Button'
 import { siteConfig } from '../data/siteConfig'
+import { useEnquiryModal } from '../context/useEnquiryModal'
 
 const values = [
   {
@@ -29,6 +30,8 @@ const values = [
 ]
 
 export function About() {
+  const { openEnquiryModal } = useEnquiryModal()
+
   return (
     <>
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-bg overflow-hidden">
@@ -57,8 +60,9 @@ export function About() {
                   subtitle="Our Story"
                   title="Beyond Public Matrimonial Portals"
                   align="left"
+                  isHeart={false}
                 />
-                <div className="space-y-4 text-text-muted leading-relaxed">
+                <div className="space-y-4 text-text-muted leading-relaxed text-justify">
                   <p>
                     Marriage is one of life&apos;s most important decisions — especially
                     for Elite families and NRIs who carry both tradition and high
@@ -145,9 +149,8 @@ export function About() {
                 <h2 className="font-serif text-3xl md:text-4xl text-text mt-3 mb-2">
                   {siteConfig.founder.name}
                 </h2>
-                <p className="text-gold text-sm mb-6">{siteConfig.founder.title}</p>
 
-                <div className="space-y-4 text-text-muted leading-relaxed mb-8">
+                <div className="space-y-4 text-text-muted leading-relaxed mb-8 text-justify mt-4">
                   <p>{siteConfig.founder.intro}</p>
                   {siteConfig.founder.paragraphs.map((paragraph) => (
                     <p key={paragraph.slice(0, 40)}>{paragraph}</p>
@@ -158,7 +161,7 @@ export function About() {
                   &ldquo;{siteConfig.founder.quote}&rdquo;
                 </blockquote>
 
-                <Button to="/contact" size="md">
+                <Button size="md" onClick={openEnquiryModal}>
                   Register Your Interest
                 </Button>
               </div>

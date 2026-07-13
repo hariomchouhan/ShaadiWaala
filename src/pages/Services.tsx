@@ -7,6 +7,7 @@ import { Button } from '../components/ui/Button'
 import { ContactCTA } from '../components/sections/ContactCTA'
 import { services, categoryLabels, type Service, type ServiceCategory } from '../data/services'
 import { siteConfig } from '../data/siteConfig'
+import { useEnquiryModal } from '../context/useEnquiryModal'
 
 const categories: ServiceCategory[] = ['core']
 
@@ -18,6 +19,7 @@ const categorySubtitles: Record<ServiceCategory, string> = {
 
 export function Services() {
   const [selected, setSelected] = useState<Service | null>(null)
+  const { openEnquiryModal } = useEnquiryModal()
 
   return (
     <>
@@ -49,6 +51,7 @@ export function Services() {
                 subtitle={categorySubtitles[category]}
                 title={categoryLabels[category]}
                 align="left"
+                isHeart={false}
               />
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -118,7 +121,13 @@ export function Services() {
               <div className="p-8">
                 <h3 className="font-serif text-2xl text-text mb-4">{selected.title}</h3>
                 <p className="text-text-muted leading-relaxed mb-6">{selected.description}</p>
-                <Button to="/contact" size="md">
+                <Button
+                  size="md"
+                  onClick={() => {
+                    setSelected(null)
+                    openEnquiryModal()
+                  }}
+                >
                   Register Your Interest
                 </Button>
               </div>

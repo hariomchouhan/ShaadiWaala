@@ -7,6 +7,7 @@ interface SectionHeadingProps {
   description?: string
   align?: 'left' | 'center'
   light?: boolean
+  isHeart?: boolean
 }
 
 export function SectionHeading({
@@ -15,6 +16,7 @@ export function SectionHeading({
   description,
   align = 'center',
   light = false,
+  isHeart = true,
 }: SectionHeadingProps) {
   const alignClass = align === 'center' ? 'text-center items-center' : 'text-left items-start'
 
@@ -33,7 +35,7 @@ export function SectionHeading({
       )}
       <div className={`flex items-center gap-3 ${align === 'center' ? 'justify-center' : ''}`}>
         {align === 'center' && <div className="h-px w-12 bg-gold/40" />}
-        <Heart className="w-4 h-4 text-gold fill-gold/20" />
+        {isHeart && <Heart className="w-4 h-4 text-gold fill-gold/20" />}
         <h2
           className={`text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight ${
             light ? 'text-white' : 'text-text'
@@ -41,7 +43,7 @@ export function SectionHeading({
         >
           {title}
         </h2>
-        <Heart className="w-4 h-4 text-gold fill-gold/20" />
+        {isHeart && <Heart className="w-4 h-4 text-gold fill-gold/20" />}
         {align === 'center' && <div className="h-px w-12 bg-gold/40" />}
       </div>
       {description && (

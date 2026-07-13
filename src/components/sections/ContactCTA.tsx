@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion'
 import { Button } from '../ui/Button'
 import { siteConfig } from '../../data/siteConfig'
+import { useEnquiryModal } from '../../context/useEnquiryModal'
 
 export function ContactCTA() {
+  const { openEnquiryModal } = useEnquiryModal()
+
   return (
     <section className="py-20 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-gold/15 via-brown-deep to-gold/10" />
@@ -26,7 +29,7 @@ export function ContactCTA() {
             Your information is never shared publicly.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button to="/contact" size="lg">
+            <Button size="lg" onClick={openEnquiryModal}>
               Register Your Interest
             </Button>
             <Button
