@@ -16,9 +16,7 @@ export function EliteBanner() {
                 Exclusively for <span className="gold-gradient-text">Elite Families & NRIs</span>
               </h2>
               <p className="text-text-muted leading-relaxed">
-                {siteConfig.eliteNote} ShaadiWaala provides personal-level matrimonial
-                services with complete confidentiality — not mass-market listings or
-                small-scale enquiries.
+                {siteConfig.eliteNote}
               </p>
             </div>
           </div>

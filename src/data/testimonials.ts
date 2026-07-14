@@ -10,7 +10,7 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     id: '1',
-    couple: 'Baniya Business Family, Indore',
+    couple: 'Dilip Goyal, Raipur',
     venue: 'Successful Match',
     date: '2022',
     quote:
@@ -19,7 +19,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '2',
-    couple: 'Jain Family, Ahmedabad',
+    couple: 'N K Jain, Ahmedabad',
     venue: 'Elite Bride Match',
     date: '2023',
     quote:
@@ -28,7 +28,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '3',
-    couple: 'Brahmin Family, Pune',
+    couple: 'Rohit Sharma, Pune',
     venue: 'Verified Match',
     date: '2024',
     quote:
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '4',
-    couple: 'Sikh Business Family, Ludhiana',
+    couple: 'Jitesh Wadhwani, Bhopal',
     venue: 'Elite Groom Match',
     date: '2023',
     quote:
@@ -46,7 +46,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '5',
-    couple: 'Punjabi Family, Chandigarh',
+    couple: 'Vikas Malhotra, Indore',
     venue: 'Family Match',
     date: '2025',
     quote:
@@ -55,7 +55,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '6',
-    couple: 'Sindhi Family, Mumbai',
+    couple: 'Capt. A S Chhabra, New Delhi',
     venue: 'Successful Match',
     date: '2024',
     quote:
@@ -64,7 +64,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '7',
-    couple: 'NRI Punjabi Family, Brampton, Canada',
+    couple: 'Rajinder Singh Sari, Canada',
     venue: 'NRI Match',
     date: '2025',
     quote:
@@ -73,7 +73,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '8',
-    couple: 'Elite Family, Indore',
+    couple: 'Mohan Kumar, USA',
     venue: 'NRI Groom Match',
     date: '2024',
     quote:

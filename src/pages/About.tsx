@@ -70,7 +70,7 @@ export function About() {
                     verification, or personal attention that such families deserve.
                   </p>
                   <p>
-                    Founded in 2010 by Mr. Parvinder Singh Bhatia, ShaadiWaala was built
+                    Founded in 2010 by Dr. Parvinder Singh Bhatia, ShaadiWaala was built
                     with a vision to redefine professional matchmaking for Elite families
                     and NRIs. With over 16 years of trusted service, we work exclusively
                     through personal, one-on-one consultations — never public listings.
@@ -143,14 +143,14 @@ export function About() {
 
             <ScrollReveal direction="right" delay={0.2}>
               <div>
-                <span className="text-gold text-sm tracking-[0.25em] uppercase">
-                  Founder & Director
-                </span>
                 <h2 className="font-serif text-3xl md:text-4xl text-text mt-3 mb-2">
                   {siteConfig.founder.name}
                 </h2>
+                <span className="text-gold">
+                  Founder & Director
+                </span>
 
-                <div className="space-y-4 text-text-muted leading-relaxed mb-8 text-justify mt-4">
+                <div className="space-y-4 text-text-muted leading-relaxed mb-8 text-justify mt-3">
                   <p>{siteConfig.founder.intro}</p>
                   {siteConfig.founder.paragraphs.map((paragraph) => (
                     <p key={paragraph.slice(0, 40)}>{paragraph}</p>
