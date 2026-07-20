@@ -41,7 +41,7 @@ export const testimonials: Testimonial[] = [
     venue: 'Elite Groom Match',
     date: '2023',
     quote:
-      'Finding the right Sikh family required trust more than technology. ShaadiWaala personally verified every detail before arranging introductions, which gave us complete peace of mind.',
+      'Finding the right Sindhi family required trust more than technology. ShaadiWaala personally verified every detail before arranging introductions, which gave us complete peace of mind.',
     rating: 5,
   },
   {
@@ -64,7 +64,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: '7',
-    couple: 'Rajinder Singh Sari, Canada',
+    couple: 'Rajinder Singh Surry, Canada',
     venue: 'NRI Match',
     date: '2025',
     quote:

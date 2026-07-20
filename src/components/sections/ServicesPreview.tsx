@@ -47,7 +47,7 @@ export function ServicesPreview() {
                   {service.title}
                 </h3>
                 <p className="text-text-muted text-sm leading-relaxed">
-                  {service.description.slice(0, 110)}...
+                  {service.description}
                 </p>
               </div>
             </ScrollReveal>

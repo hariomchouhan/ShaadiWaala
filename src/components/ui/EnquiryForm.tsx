@@ -7,6 +7,18 @@ import type { LookingFor } from '../../types/query'
 const inputClass =
   'w-full px-4 py-3 bg-surface border border-gold/20 rounded-sm text-text focus:border-gold focus:outline-none transition-colors'
 
+const errorInputClass = 'border-red-400 focus:border-red-500'
+
+const sanitizeLetters = (value: string) => value.replace(/[^A-Za-z\s]/g, '')
+const sanitizePhone = (value: string) => value.replace(/\D/g, '').slice(0, 10)
+
+interface FieldErrors {
+  name?: string
+  phone?: string
+  city?: string
+  lookingFor?: string
+}
+
 interface EnquiryFormProps {
   idPrefix?: string
   onSuccess?: () => void
@@ -16,27 +28,68 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [city, setCity] = useState('')
+  const [lookingFor, setLookingFor] = useState<LookingFor | ''>('')
 
   const fieldId = (name: string) => (idPrefix ? `${idPrefix}-${name}` : name)
 
+  const validateForm = (): FieldErrors => {
+    const errors: FieldErrors = {}
+    const trimmedName = name.trim()
+    const trimmedCity = city.trim()
+
+    if (!trimmedName) {
+      errors.name = 'Please enter your full name.'
+    } else if (!/^[A-Za-z\s]+$/.test(trimmedName)) {
+      errors.name = 'Name can contain letters only.'
+    }
+
+    if (!phone) {
+      errors.phone = 'Please enter your phone number.'
+    } else if (!/^\d{10}$/.test(phone)) {
+      errors.phone = 'Phone number must be exactly 10 digits.'
+    }
+
+    if (trimmedCity && !/^[A-Za-z\s]+$/.test(trimmedCity)) {
+      errors.city = 'City can contain letters only.'
+    }
+
+    if (!lookingFor) {
+      errors.lookingFor = 'Please select who you are looking for.'
+    }
+
+    return errors
+  }
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setLoading(true)
     setError(null)
 
-    const form = e.currentTarget
-    const data = new FormData(form)
+    const errors = validateForm()
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors)
+      return
+    }
+
+    setFieldErrors({})
+    setLoading(true)
 
     try {
       await submitContactQuery({
-        name: data.get('name') as string,
-        phone: data.get('phone') as string,
-        city: (data.get('city') as string) || '',
-        lookingFor: data.get('lookingFor') as LookingFor,
+        name: name.trim(),
+        phone,
+        city: city.trim(),
+        lookingFor: lookingFor as LookingFor,
       })
 
       setSubmitted(true)
-      form.reset()
+      setName('')
+      setPhone('')
+      setCity('')
+      setLookingFor('')
       onSuccess?.()
     } catch (err) {
       console.error('Failed to submit enquiry:', err)
@@ -80,11 +133,19 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
             id={fieldId('name')}
             name="name"
             type="text"
-            required
+            value={name}
+            onChange={(e) => {
+              setName(sanitizeLetters(e.target.value))
+              if (fieldErrors.name) setFieldErrors((prev) => ({ ...prev, name: undefined }))
+            }}
             disabled={loading}
-            className={inputClass}
+            className={`${inputClass} ${fieldErrors.name ? errorInputClass : ''}`}
             placeholder="Your name"
+            autoComplete="name"
           />
+          {fieldErrors.name && (
+            <p className="mt-1.5 text-red-600 text-xs">{fieldErrors.name}</p>
+          )}
         </div>
 
         <div>
@@ -95,11 +156,21 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
             id={fieldId('phone')}
             name="phone"
             type="tel"
-            required
+            inputMode="numeric"
+            value={phone}
+            onChange={(e) => {
+              setPhone(sanitizePhone(e.target.value))
+              if (fieldErrors.phone) setFieldErrors((prev) => ({ ...prev, phone: undefined }))
+            }}
             disabled={loading}
-            className={inputClass}
-            placeholder="+91 XXXXX XXXXX"
+            className={`${inputClass} ${fieldErrors.phone ? errorInputClass : ''}`}
+            placeholder="10-digit mobile number"
+            autoComplete="tel"
+            maxLength={10}
           />
+          {fieldErrors.phone && (
+            <p className="mt-1.5 text-red-600 text-xs">{fieldErrors.phone}</p>
+          )}
         </div>
 
         <div>
@@ -110,10 +181,19 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
             id={fieldId('city')}
             name="city"
             type="text"
+            value={city}
+            onChange={(e) => {
+              setCity(sanitizeLetters(e.target.value))
+              if (fieldErrors.city) setFieldErrors((prev) => ({ ...prev, city: undefined }))
+            }}
             disabled={loading}
-            className={inputClass}
+            className={`${inputClass} ${fieldErrors.city ? errorInputClass : ''}`}
             placeholder="Your city"
+            autoComplete="address-level2"
           />
+          {fieldErrors.city && (
+            <p className="mt-1.5 text-red-600 text-xs">{fieldErrors.city}</p>
+          )}
         </div>
 
         <div>
@@ -123,14 +203,23 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
           <select
             id={fieldId('lookingFor')}
             name="lookingFor"
-            required
+            value={lookingFor}
+            onChange={(e) => {
+              setLookingFor(e.target.value as LookingFor | '')
+              if (fieldErrors.lookingFor) {
+                setFieldErrors((prev) => ({ ...prev, lookingFor: undefined }))
+              }
+            }}
             disabled={loading}
-            className={inputClass}
+            className={`${inputClass} ${fieldErrors.lookingFor ? errorInputClass : ''}`}
           >
             <option value="">Select</option>
             <option value="bride">Bride</option>
             <option value="groom">Groom</option>
           </select>
+          {fieldErrors.lookingFor && (
+            <p className="mt-1.5 text-red-600 text-xs">{fieldErrors.lookingFor}</p>
+          )}
         </div>
 
         <Button type="submit" size="lg" className={loading ? 'opacity-70 pointer-events-none' : ''}>
