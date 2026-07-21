@@ -63,7 +63,7 @@ export const images = {
   hero2:
     'https://firebasestorage.googleapis.com/v0/b/shaadiwaala-5f8be.firebasestorage.app/o/website%2FWhatsApp%20Image%202026-07-09%20at%2011.05.47.jpeg?alt=media&token=93a3fbd3-4d19-43b5-87ce-4454fc078961',
   hero3:
-    'https://firebasestorage.googleapis.com/v0/b/shaadiwaala-5f8be.firebasestorage.app/o/website%2FWhatsApp%20Image%202026-07-09%20at%2015.43.29.jpeg?alt=media&token=1e3df40a-80e9-457d-a281-c61c35e11d4e',
+    'https://firebasestorage.googleapis.com/v0/b/shaadiwaala-5f8be.firebasestorage.app/o/website%2FSW.jpg?alt=media&token=6dc097e4-fb94-4f95-be2e-d6c943e8a72c',
   // hero4:
   //   'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80',
 } as const
