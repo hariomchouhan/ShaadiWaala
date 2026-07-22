@@ -10,7 +10,13 @@ const inputClass =
 const errorInputClass = 'border-red-400 focus:border-red-500'
 
 const sanitizeLetters = (value: string) => value.replace(/[^A-Za-z\s]/g, '')
-const sanitizePhone = (value: string) => value.replace(/\D/g, '').slice(0, 10)
+
+/** Optional leading +, then up to 13 digits (e.g. +91 + 10-digit mobile). */
+const sanitizePhone = (value: string) => {
+  const hasPlus = value.trimStart().startsWith('+')
+  const digits = value.replace(/\D/g, '').slice(0, 13)
+  return hasPlus ? `+${digits}` : digits
+}
 
 interface FieldErrors {
   name?: string
@@ -49,8 +55,9 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
 
     if (!phone) {
       errors.phone = 'Please enter your phone number.'
-    } else if (!/^\d{10}$/.test(phone)) {
-      errors.phone = 'Phone number must be exactly 10 digits.'
+    } else if (!/^\+?\d{10,13}$/.test(phone)) {
+      errors.phone =
+        'Enter 10–13 digits, with optional country code (e.g. +919876543210).'
     }
 
     if (trimmedCity && !/^[A-Za-z\s]+$/.test(trimmedCity)) {
@@ -156,7 +163,7 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
             id={fieldId('phone')}
             name="phone"
             type="tel"
-            inputMode="numeric"
+            inputMode="tel"
             value={phone}
             onChange={(e) => {
               setPhone(sanitizePhone(e.target.value))
@@ -164,9 +171,9 @@ export function EnquiryForm({ idPrefix = '', onSuccess }: EnquiryFormProps) {
             }}
             disabled={loading}
             className={`${inputClass} ${fieldErrors.phone ? errorInputClass : ''}`}
-            placeholder="10-digit mobile number"
+            placeholder="+91XXXXXXXXXX"
             autoComplete="tel"
-            maxLength={10}
+            maxLength={14}
           />
           {fieldErrors.phone && (
             <p className="mt-1.5 text-red-600 text-xs">{fieldErrors.phone}</p>
